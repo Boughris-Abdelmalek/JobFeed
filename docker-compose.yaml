@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  db:
+    container_name: container-db
+    image: postgres:latest
+    hostname: localhost
+    ports:
+      - "9876:9876"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: default_db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:

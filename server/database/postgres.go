@@ -3,28 +3,15 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
-	"log"
 	"os"
-	"path/filepath"
 )
 
 var Db *sql.DB
 
 func ConnectDB() {
-	pwd, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-
-	err = godotenv.Load(filepath.Join(pwd, "../.env"))
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
-
-	host := os.Getenv("HOST")
-	port := os.Getenv("PORT")
+	host := os.Getenv("POSTGRES_HOST")
+	port := os.Getenv("POSTGRES_PORT")
 	user := os.Getenv("POSTGRES_USER")
 	password := os.Getenv("POSTGRES_PASSWORD")
 	dbname := os.Getenv("POSTGRES_DB")

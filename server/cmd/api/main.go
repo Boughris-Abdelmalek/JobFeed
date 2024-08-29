@@ -14,5 +14,5 @@ func main() {
 	routes.SetupRoutes(router)
 
 	// Start server
-	router.Run("localhost:6060")
+	router.Run("0.0.0.0:6060")
 }
